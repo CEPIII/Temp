@@ -32,8 +32,8 @@ namespace Temp
             }
 
             //Заодно найду максимальный элемент, минимальный и сумму всех элементов
-            int min = arr[0, 0];
-            int max = arr[0, 0];
+            int mini = arr[0, 0];
+            int maxi = arr[0, 0];
             int summ = 0;
             for (int i = 0; i < arr.GetLength(0); i++)
             {
@@ -41,13 +41,13 @@ namespace Temp
                 {
                     summ += arr[i, j];      //Подсчет Суммы элементов
 
-                    if (min > arr[i, j]) min = arr[i, j];
-                    if (max < arr[i, j]) max = arr[i, j];
+                    if (mini > arr[i, j]) mini = arr[i, j];
+                    if (maxi < arr[i, j]) maxi = arr[i, j];
                 }
             }
 
-            Console.WriteLine($"Наименьший элемент массива \n\tmin = {min}\n");
-            Console.WriteLine($"Наибольший элемент массива \n\tmax = {max}\n");
+            Console.WriteLine($"Наименьший элемент массива \n\tmin = {mini}\n");
+            Console.WriteLine($"Наибольший элемент массива \n\tmax = {maxi}\n");
             Console.WriteLine($"Сумма элементов массива \n\tsumm = {summ}\n");
 
             //Узнаю общее количество элементов двумерного массива
@@ -55,13 +55,19 @@ namespace Temp
             Console.WriteLine("Количество элементов двумерного массива = " + lengthArr);
             //Создаю одномерный универсальный массив принимающий значения вышеполученного многомерного 
             int[] arrFromTwin = new int[lengthArr];
-            //Заполняю
-            /*
-            int x = 0;
-            foreach (var item in arr)
-            {
 
-            }*/
+            //Заполняю и вывожу на экран
+            
+            int xTemp = 0;
+            foreach (int item in arr)
+            {
+                arrFromTwin[xTemp] = item;
+                Console.Write(arrFromTwin[xTemp] + ", ");
+                xTemp++;
+
+            }
+
+            
         }
     }
 }
